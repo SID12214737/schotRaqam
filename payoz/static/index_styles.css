@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css?family=Orbitron&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Hind&display=swap');
+
+* {
+  -webkit-font-smoothing: antialiased;
+  color: #acbdce;
+}
+
+:root {
+  --border-radius: 10px;
+}
+
+.user-info {
+    margin-bottom: 20px; /* Adjust the margin-top value as needed */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+body, html {
+  justify-content: center;
+  align-items: center;
+  background: #e2e9f4;
+  display: grid;
+  height: 100%;
+  place-items: center;
+}
+
+.Card {
+  padding: 1px;
+  border-radius: var(--border-radius);
+  background: linear-gradient(-67deg, rgba(200, 216, 231, .7), rgba(255, 255, 255, .8));
+  overflow: hidden;
+  box-shadow: 
+    -2px -2px 6px rgba(255, 255, 255, .6),
+    2px 2px 12px rgba(200, 216, 231, 1);
+  width: 380px;
+}
+
+.CardInner {
+  padding: 16px 16px;
+  background-color: #e2e9f4;
+  border-radius: var(--border-radius);
+}
+
+.container {
+  display: flex;
+}
+
+.Icon {
+  min-width: 46px;
+  min-height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius);
+  margin-right: 12px;
+  box-shadow: 
+    -2px -2px 6px rgba(255, 255, 255, .6),
+    2px 2px 12px rgba(200, 216, 231, 1);
+    
+  svg {
+    transform: translate(-1px, -1px);    
+  }
+}
+
+.IconButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px; /* Adjust padding to fit the text */
+    border-radius: var(--border-radius);
+    box-shadow: 
+        -2px -2px 6px rgba(255, 255, 255, .6),
+        2px 2px 12px rgba(200, 216, 231, 1);
+}
+
+.IconButton svg {
+    width: 24px; /* Adjust the size of the SVG icon */
+    height: 24px; /* Adjust the size of the SVG icon */
+}
+
+label {
+  font-family: "Hind", sans-serif;
+  display: block;
+  color: #3c4b66;
+  margin-bottom: 12px;
+  background: linear-gradient(45deg, rgba(107, 123, 143, 1), #3c4b66);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.InputContainer {
+  width: 100%;
+}
+
+input {
+  background-color: #e3edf7;
+  padding: 16px 32px;
+  border: none;
+  display: block;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 600;
+  color: #a9b8c9;
+  -webkit-appearance: none;
+  transition: all 240ms ease-out;
+  width: 100%;
+  
+  &::placeholder {
+    color: #6d7f8f;
+  }
+  
+  &:focus {
+    outline: none;
+    color: #6d7f8f;
+    background-color: #e3edf7;
+  }
+}
+  
+.InputContainer {
+  --top-shadow: inset 1px 1px 3px rgba(197, 212, 227, 1), inset 2px 2px 6px rgba(197, 212, 227, 1);
+  --bottom-shadow: inset -2px -2px 4px rgba(255, 255, 255, .7);
+  
+  position: relative;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  
+  &:before,
+  &:after {
+    left: 0;
+    top: 0;
+    display: block;
+    content: "";
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+  
+  &:before {
+    box-shadow: var(--bottom-shadow);
+  }
+  
+  &:after {
+    box-shadow: var(--top-shadow);
+  }
+}
+
+
+/* Style for the dropdown list */
+.ui-autocomplete {
+    max-height: 200px; /* Limit the height of the dropdown list */
+    overflow-y: auto; /* Add scrollbar when needed */
+    width: 250px; /* Fixed width for the dropdown list */
+    background-color: white; /* Set background color */
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 5px; /* Add border radius */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Add box shadow */
+}
+
+/* Style for each item in the dropdown list */
+.ui-menu-item {
+    padding: 8px 12px; /* Add padding */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+/* Style for the selected item in the dropdown list */
+.ui-menu-item-wrapper {
+    color: #333; /* Set text color */
+}
+
+/* Style for the hovered item in the dropdown list */
+.ui-menu-item-wrapper:hover {
+    background-color: #f0f0f0; /* Change background color on hover */
+}
+
+
+.ui-helper-hidden-accessible {
+    display: none !important; /* Hide the message */
+}
+
+/* Style for the search button */
+.SearchButton {
+    width: 46px; /* Set width */
+    height: 46px; /* Set height */
+    display: flex; /* Use flexbox for centering */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    background-color: #007bff; /* Set background color */
+    border-radius: 50%; /* Make it round */
+    cursor: pointer; /* Change cursor to pointer */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Add box shadow */
+    transition: background-color 0.3s ease; /* Add transition for smooth effect */
+}
+
+/* Style for the search button on hover */
+.SearchButton:hover {
+    background-color: #0056b3; /* Change background color on hover */
+}
+
+/* Set a fixed width for the dropdown list */
+.ui-autocomplete {
+    width: 200px; /* Adjust the width as needed */
+}
+
+/* Position the dropdown list below the input field */
+.ui-autocomplete {
+    position: absolute;
+    top: 100%;
+    left: 0;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index_styles.css') }}">
+    <style>
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+    <script>
+        function redirectToRegister() {
+            window.location.href = "/register";
+        }
+    </script>
+</head>
+<body>
+    <div class="Card">
+        <div class="container CardInner">
+            <form action="/login" method="POST">
+                <h1>Login</h1>
+                {% if error %}
+                <p style="color: red;">{{ error }}</p>
+                {% endif %}
+                <label for="username">Username:</label>
+                <input class="InputContainer" type="text" name="username" id="username" required>
+                <br>
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" required>
+                <br>
+                <div class="button-container">
+                    <button type="submit">Login</button>
+                    <button type="button" onclick="redirectToRegister()">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
