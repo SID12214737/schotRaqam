@@ -1,12 +1,13 @@
 from flask import Flask, render_template, request, jsonify, redirect, url_for, session, flash
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import inspect
 from sqlalchemy.exc import IntegrityError
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime, timedelta
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your_secret_key'
+app.config['SECRET_KEY'] = 'locked998'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 db = SQLAlchemy(app)
 
@@ -26,6 +27,29 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(50), unique=True, nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
     password = db.Column(db.String(100), nullable=False)
+
+
+
+# Create an application context
+app.app_context().push()
+
+# Create the database tables if they don't exist
+with app.app_context():
+    inspector = inspect(db.engine)
+    existing_tables = inspector.get_table_names()
+    
+    if not 'user' in existing_tables:  # Check for the user table
+        db.create_all()
+        
+        # Insert initial data if needed
+        if not User.query.filter_by(username='admin').first():
+            admin_user = User(username='admin', email='uzmir6358@gmail.com', password='locked')
+            db.session.add(admin_user)
+            db.session.commit()
+
+        print("Database initialization completed.")
+    else:
+        print("Database tables already exist.")
 
 
 
